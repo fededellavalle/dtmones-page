@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Sección principal */
+.main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: url('/assets/images/background.jpg');
+    /* Cambia la ruta por la correcta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+/* Overlay oscuro */
+.main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Oscurece el fondo */
+    z-index: 1;
+}
+
+.client-details{
+    margin: 130px 0 40px 0;
+    text-align: center;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px 100px 25px 100px;
+    border-radius: 10px;
+}
+
+.client-name{
+    font-weight: bold;
+    display: inline-block; /* Asegura que el <h1> respete su contenedor */
+    width: 100%; /* Se extiende al ancho completo */
+    text-align: center; /* Opcional: Centra el texto */
+    border-bottom: 3px solid #790000; /* Línea completa debajo del texto */
+    padding-bottom: 10px; 
+}
+
+.client-description{
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 3px solid #790000; /* Línea completa debajo del texto */
+    padding-bottom: 10px; 
+}
+
+.description{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.client-image-container {
+    position: relative;
+    max-width: 280px; /* Ajusta según tus necesidades */
+    overflow: hidden;
+}
+
+.client-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.client-details h2{
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.videos{
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.div-button a{
+    background-color: #790000;
+    border: none;
+}
+
+
+@media (max-width: 768px) {
+    .client-description{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .description{
+        margin-top: 10px;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .video iframe{
+        max-width: 100%;
+    }
+
+    .client-details{
+        padding: 25px;
+        border-radius: 0px;
+    }
+
+    .div-button{
+        margin-bottom: 5px;
+    }
+    
+}

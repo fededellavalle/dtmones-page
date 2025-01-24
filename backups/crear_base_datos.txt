@@ -1,0 +1,180 @@
+-- Tabla de nacionalidad
+CREATE TABLE nacionalidad (
+    id_nacionalidad INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_nacionalidad VARCHAR(100) NOT NULL
+);
+
+-- Tabla de equipo
+CREATE TABLE equipo (
+    id_equipo INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_equipo VARCHAR(100) NOT NULL
+);
+
+-- Tabla de posición
+CREATE TABLE posicion (
+    id_posicion INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_posicion VARCHAR(50) NOT NULL,
+    abreviacion_posicion VARCHAR(10) NOT NULL
+);
+
+-- Tabla de categoría
+CREATE TABLE categoria (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_categoria ENUM('Imports', 'Domestics', 'Legends') NOT NULL
+);
+
+-- Tabla de clientes
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    nacimiento DATE NOT NULL,
+    id_posicion INT NOT NULL,
+    id_nacionalidad INT NOT NULL,
+    peso DECIMAL(5, 2) NOT NULL, -- Ejemplo: 85.50
+    altura DECIMAL(4, 2) NOT NULL, -- Ejemplo: 1.90
+    id_equipo INT NOT NULL,
+    imagen VARCHAR(255), -- URL de la imagen
+    link_eurobasket VARCHAR(255), -- URL a Eurobasket
+    id_categoria INT NOT NULL, -- Relación con la tabla categoría
+    FOREIGN KEY (id_posicion) REFERENCES posicion(id_posicion),
+    FOREIGN KEY (id_nacionalidad) REFERENCES nacionalidad(id_nacionalidad),
+    FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo),
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+);
+
+-- Tabla de videos (relacionada con clientes)
+CREATE TABLE videos (
+    id_video INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    link_video VARCHAR(255) NOT NULL, -- URL del video de YouTube
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id)
+);
+
+-- Tabla de certificados
+CREATE TABLE certificados (
+    id_certificado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_certificado VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE coaches (
+    id_coach INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    id_nacionalidad INT NOT NULL,
+    id_equipo INT NOT NULL,
+    nacimiento DATE NOT NULL,
+    imagen VARCHAR(255), -- URL de la imagen del coach
+    id_certificado INT, -- Relación con el certificado
+    es_fiba BOOLEAN NOT NULL DEFAULT FALSE, -- Si el coach está acreditado por FIBA
+    FOREIGN KEY (id_nacionalidad) REFERENCES nacionalidad(id_nacionalidad),
+    FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo),
+    FOREIGN KEY (id_certificado) REFERENCES certificados(id_certificado)
+);
+
+
+-- Tabla de experiencias
+CREATE TABLE experiencias (
+    id_experiencia INT AUTO_INCREMENT PRIMARY KEY,
+    id_coach INT NOT NULL, -- Relación con el coach
+    descripcion TEXT NOT NULL, -- Detalle de la experiencia
+    FOREIGN KEY (id_coach) REFERENCES coaches(id_coach)
+);
+
+
+CREATE TABLE publicaciones_instagram (
+    id_publicacion INT AUTO_INCREMENT PRIMARY KEY,
+    link_publicacion VARCHAR(255) NOT NULL
+);
+
+
+
+
+
+-- INSERTS para la tabla nacionalidad
+INSERT INTO nacionalidad (nombre_nacionalidad) VALUES 
+('Argentina'), 
+('United States');
+
+-- INSERTS para la tabla posicion
+INSERT INTO posicion (nombre_posicion, abreviacion_posicion) VALUES 
+('Point Guard', 'PG'), 
+('Shooting Guard', 'SG'), 
+('Small Forward', 'SF'), 
+('Power Forward', 'PF'), 
+('Center', 'C');
+
+-- INSERTS para la tabla equipo
+INSERT INTO equipo (nombre_equipo) VALUES 
+('Dallas Mavericks'), 
+('Los Angeles Lakers'), 
+('Los Angeles Clippers'), 
+('Houston Rockets'), 
+('San Antonio Spurs');
+
+INSERT INTO categoria (nombre_categoria) VALUES 
+('Imports'), 
+('Domestics'), 
+('Legends');
+
+-- INSERTS para la tabla clientes
+INSERT INTO clientes (
+    nombre, apellido, nacimiento, id_posicion, id_nacionalidad, peso, altura, id_equipo, imagen, link_eurobasket, id_categoria
+) VALUES 
+('Facundo', 'Campazzo', '1991-03-23', 1, 1, 84.0, 1.78, 5, '/assets/images/clients/domestics/facundo_campazzo.png', 'https://www.eurobasket.com/facundo_campazzo', 2),
+('James', 'Harden', '1989-08-26', 2, 2, 100.0, 1.96, 4, '/assets/images/clients/imports/james_harden.png', 'https://www.eurobasket.com/james_harden', 1),
+('Dirk', 'Nowitzki', '1978-06-19', 4, 2, 111.0, 2.13, 1, '/assets/images/clients/imports/dirk_nowitzki.png', 'https://www.eurobasket.com/dirk_nowitzki', 1),
+('Kawhi', 'Leonard', '1991-06-29', 3, 2, 104.0, 2.01, 3, '/assets/images/clients/imports/kawhi_leonard.png', 'https://www.eurobasket.com/kawhi_leonard', 2),
+('Kobe', 'Bryant', '1978-08-23', 2, 2, 96.0, 1.98, 2, '/assets/images/clients/imports/kobe_bryant.png', 'https://www.eurobasket.com/kobe_bryant', 1),
+('Shaquille', "O'Neal", '1972-03-06', 5, 2, 147.0, 2.16, 2, '/assets/images/clients/imports/shaquille_oneal.png', 'https://www.eurobasket.com/shaquille_oneal', 1),
+('Paul', 'George', '1990-05-02', 3, 2, 99.0, 2.06, 3, '/assets/images/clients/imports/paul_george.png', 'https://www.eurobasket.com/paul_george', 2);
+
+
+
+-- INSERTS para la tabla videos
+INSERT INTO videos (id_cliente, link_video) VALUES 
+(1, 'https://www.youtube.com/watch?v=acCazeT3E8Y'),
+(2, 'https://www.youtube.com/watch?v=rHG4uHOY5SM'),
+(3, 'https://www.youtube.com/watch?v=BfixJPEky1I'),
+(4, 'https://www.youtube.com/watch?v=ChT3ewZXTfM'),
+(5, 'https://www.youtube.com/watch?v=1fjhIWJSxfw'),
+(6, 'https://www.youtube.com/watch?v=dkrPBAhVFn0'),
+(7, 'https://www.youtube.com/watch?v=xalSIewoeAA'),
+(4, 'https://www.youtube.com/watch?v=xxueY7lyF5k');
+
+INSERT INTO coaches (nombre, apellido, id_nacionalidad, id_equipo, nacimiento, imagen, id_certificado, es_fiba)
+VALUES 
+('Gregg', 'Popovich', 1, 1, '1949-01-28', '/assets/images/popovich.png', 1, TRUE),
+('Phil', 'Jackson', 1, 2, '1945-09-17', '/assets/images/jackson.png', 1, FALSE),
+('Steve', 'Kerr', 1, 3, '1965-09-27', '/assets/images/kerr.png', 1, TRUE);
+
+INSERT INTO experiencias (id_coach, descripcion)
+VALUES 
+(1, 'Head Coach of San Antonio Spurs - 5x NBA Champion'),
+(1, 'Assistant Coach for USA Basketball - Gold Medalist'),
+(2, 'Head Coach of Chicago Bulls - 6x NBA Champion'),
+(2, 'Head Coach of Los Angeles Lakers - 5x NBA Champion'),
+(3, 'Head Coach of Golden State Warriors - 4x NBA Champion'),
+(3, 'Broadcasting Analyst - TNT Sports');
+
+INSERT INTO certificados (nombre_certificado)
+VALUES 
+('ENEBA Nivel 3');
+
+
+
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO users (username, password)
+VALUES ('DTMones', MD5('GustavoGorini122'));
+
+
+INSERT INTO publicaciones_instagram (link_publicacion)
+VALUES 
+('https://www.instagram.com/p/DFC2fwPO4wv/'),
+('https://www.instagram.com/p/DFAszxhOMjl/');

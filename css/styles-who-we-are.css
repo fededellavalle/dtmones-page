@@ -1,0 +1,101 @@
+.main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: url('/assets/images/background.jpg');
+    /* Cambia la ruta por la correcta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+/* Overlay oscuro */
+.main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Oscurece el fondo */
+    z-index: 1;
+}
+
+.profile-section {
+    position: relative;
+    z-index: 2;
+    /* Eleva el contenido por encima del overlay */
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Asegura que ocupe toda la altura */
+}
+
+.profile-card {
+    background-color: rgb(14, 13, 13);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    text-align: center;
+    margin: auto;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    margin-bottom: 20px;
+    object-position: top;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.profile-role {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.profile-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    font-size: 20px;
+    margin: 0 10px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #790000;
+}
+
+.license {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #ccc;
+}

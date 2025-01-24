@@ -1,0 +1,88 @@
+.div-card {
+    margin: auto;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.card-player {
+    width: 18rem;
+    background: none;
+    border: none;
+    color: white;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 20px;
+
+}
+
+.card-category {
+    position: absolute;
+    top: 10px;
+    /* Ajusta según sea necesario */
+    left: 10px;
+    /* Ajusta según sea necesario */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fondo oscuro con transparencia */
+    color: white;
+    /* Texto blanco */
+    font-size: 0.9rem;
+    /* Tamaño del texto */
+    font-weight: bold;
+    /* Texto en negrita */
+    padding: 5px 10px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    z-index: 2;
+    /* Para asegurarte de que se muestre sobre la imagen */
+}
+
+.card-image {
+    position: relative;
+    border-radius: 20px 60% 20px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card-image img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    object-position: top;
+    transition: all 0.3s ease;
+    /* Transición suave para la animación */
+    cursor: pointer;
+
+}
+
+/* Sombra al pasar el mouse */
+.card-image img:hover {
+    transform: scale(1.02);
+    /* Pequeño zoom */
+    filter: drop-shadow(10px 10px 15px white);
+}
+
+.overlays {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+}
+
+.card-details {
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}

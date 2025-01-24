@@ -1,0 +1,268 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Banner Section */
+.banner-section {
+  position: relative;
+  color: #fff;
+  height: 100vh; /* Ocupa toda la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra todo el fondo */
+  z-index: 0; /* Coloca el video detrás del contenido */
+}
+
+.banner-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(121, 0, 0, 0.5); /* Overlay oscuro */
+  z-index: 1; /* Capa encima del video */
+}
+
+.banner-section .container {
+  position: relative;
+  z-index: 2; /* Eleva el contenido sobre el overlay */
+}
+
+.banner-image {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto 20px;
+  animation: slideUp 1s forwards; /* Aparece con deslizamiento */
+}
+
+.banner-text {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  animation: slideUp 1.2s forwards; /* Retraso para aparecer */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .banner-section {
+    padding: 100px 20px;
+  }
+
+  .banner-text {
+    font-size: 32px;
+  }
+
+  .banner-image {
+    max-width: 300px;
+  }
+}
+
+
+
+
+
+
+/* Sección principal */
+.main-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    color: #fff;
+    background-color: rgb(14, 13, 13);
+}
+
+.main-section .text-content {
+    max-width: 50%;
+    background-color: rgba(121, 0, 0, 0.8);
+    /*Opacity start*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.80;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+    /*Opacity end*/
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.main-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.main-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+
+  .main-section .text-content {
+    max-width: 100%;
+  }
+
+  .main-section{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+
+/*Carousel de jugadores*/
+/* Parallax Effect para el fondo del carrusel */
+.parallax-carousel {
+  position: relative;
+  background-image: url('/assets/images/background.jpg'); /* Ruta de la imagen */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.titulo-carousel {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.carousel-section {
+  z-index: 2;
+  position: relative;
+}
+
+.card-link{
+  text-decoration: none;
+}
+
+.card-player {
+  width: 18rem;
+  background: none;
+  border: none;
+  color: white;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.card-image {
+  position: relative;
+  border-radius: 20px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  object-position: top;
+  transition: all 0.3s ease; /* Transición suave para la animación */
+  cursor: pointer;
+}
+
+/* Sombra al pasar el mouse */
+.card-image img:hover {
+  transform: scale(1.02); /* Pequeño zoom */
+  filter: drop-shadow(10px 10px 15px white); /* Sombra blanca que respeta el contorno */
+}
+
+
+.overlays {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+}
+
+.card-details {
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* Botón personalizado */
+.btn-see-more {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 25px;
+  background-color: #790000; /* Rojo oscuro */
+  color: white;
+  border: none;
+  border-radius: 50px; /* Bordes redondeados */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Separación entre el texto y el ícono */
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+}
+
+/* Animación al pasar el mouse */
+.btn-see-more:hover {
+  background-color: #a30000; /* Rojo más claro en hover */
+  transform: translateY(-3px); /* Pequeño movimiento hacia arriba */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
+/* Ícono animado */
+.btn-see-more i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease; /* Transición para el ícono */
+}
+
+/* Efecto del ícono en hover */
+.btn-see-more:hover i {
+  transform: translateX(5px); /* Mueve la flecha hacia la derecha */
+}

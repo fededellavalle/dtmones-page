@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Sección principal */
+.main-banner {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-image: url('/assets/images/background.jpg');
+    /* Cambia la ruta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+}
+
+/* Overlay oscuro */
+.main-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Oscurece el fondo */
+    z-index: 1;
+}
+
+/* Texto en el banner */
+.main-banner h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    position: relative;
+    /* Para superponer el texto sobre el overlay */
+    z-index: 2;
+}
+
+.player-section {
+    padding: 30px 0;
+}
+
+.div-card {
+    margin-bottom: 20px;
+}
+
+.card-player {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-player:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-player p {
+    margin: 0;
+}
+
+.card-player .btn {
+    margin: 5px;
+}
+
+.card-image {
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    object-position: top;
+    transition: all 0.3s ease;
+    /* Transición suave para la animación */
+    cursor: pointer;
+
+}
+
+/* Sombra al pasar el mouse */
+.card-image img:hover {
+    transform: scale(1.02);
+    /* Pequeño zoom */
+    filter: drop-shadow(10px 10px 15px white);
+}
+
+#playerDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#playerDetails img{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#playerDetails iframe{
+    width: auto;
+    margin: 5px 0;
+}
+
+.p-experiencies{
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .btn-success{
+        margin: 5px 0;
+    }
+}

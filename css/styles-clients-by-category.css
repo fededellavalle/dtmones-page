@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* Sección principal */
+.main-banner {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-image: url('/assets/images/background.jpg'); /* Cambia la ruta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+}
+
+/* Overlay oscuro */
+.main-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Oscurece el fondo */
+    z-index: 1;
+}
+
+/* Texto en el banner */
+.main-banner h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    position: relative; /* Para superponer el texto sobre el overlay */
+    z-index: 2;
+}
+
+
+.corte{
+    height: 20px;
+    background-color: black;
+}
+
+/* Filtro */
+.container-main {
+    height: 58px;
+    text-align: center;
+    background-color: black;
+    padding: 10px;
+    overflow: hidden; /* Importante para animar la altura */
+    transition: height 0.5s ease-in-out;
+}
+
+#toggleFilters {
+    background-color: #790000;
+    color: #fff;
+}
+
+.filter-section {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    height: auto;
+}
+
+.filter-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.position-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.position-filters label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.position-filters input[type="radio"] {
+    margin-right: 5px;
+}
+
+
+
+/* Contenedor de jugadores */
+.player-section {
+    position: relative;
+    background-image: url('/assets/images/background-players.jpg'); /* Cambia la ruta a tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(66, 67, 68, 0.8); /* Overlay con transparencia */
+    z-index: 1;
+}
+
+.player-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.player-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container{
+    z-index: 100;
+}
+
+.div-card{
+    margin: auto;
+}
+
+.card-link{
+    text-decoration: none;
+}
+
+
+.card-player {
+    width: 18rem;
+    background: none;
+    border: none;
+    color: white;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 20px;
+    
+  }
+
+  .card-category {
+    position: absolute;
+    top: 10px; /* Ajusta según sea necesario */
+    left: 10px; /* Ajusta según sea necesario */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    color: white; /* Texto blanco */
+    font-size: 0.9rem; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    padding: 5px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    z-index: 2; /* Para asegurarte de que se muestre sobre la imagen */
+}
+
+  
+  .card-image {
+    position: relative;
+    border-radius: 20px 60% 20px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    object-position: top;
+    transition: all 0.3s ease; /* Transición suave para la animación */
+    cursor: pointer;
+    
+  }
+  
+  /* Sombra al pasar el mouse */
+  .card-image img:hover {
+    transform: scale(1.02); /* Pequeño zoom */
+    filter: drop-shadow(10px 10px 15px white);
+  }
+  
+  
+  .overlays {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .card-details {
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+  

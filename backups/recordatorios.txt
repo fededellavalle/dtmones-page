@@ -1,0 +1,42 @@
+Color de antes naranja: rgba(233, 117, 8, 0.6); 
+#e97508;
+
+
+
+Texto para quienes somos
+<p>
+            Fundada en (falta anho), DTMones es una agencia de representación de jugadores de básquet de Argentina,
+            especializada en el desarrollo y la gestión de talentos tanto a nivel nacional como internacional. Desde
+            nuestros inicios, nos hemos comprometido a brindar un servicio de calidad excepcional a nuestros clientes,
+            acompañándolos en cada etapa de su carrera profesional.
+            <br>
+            Estamos orgullosos de contar con relaciones sólidas y duraderas con nuestros jugadores. Muchos nunca han
+            necesitado buscar otra representación.
+            <br>
+            A lo largo de los años, DTMones ha gestionado innumerables contratos en diversas ligas alrededor del mundo,
+            en países de América, Europa, Asia y más allá. ¡Desde nuestra fundación, hemos participado en más de 300
+            acuerdos exitosos, asegurando que cada jugador encuentre las mejores oportunidades para destacar en su
+            carrera!
+            <br>
+            Aunque nuestra base está en Argentina y tenemos un fuerte enfoque en el mercado de básquet latinoamericano,
+            hemos desarrollado los recursos necesarios para colocar a nuestros jugadores en ligas de élite a nivel
+            global. Con DTMones, no hay puertas cerradas, solo nuevas oportunidades.
+            <br>
+            El camino que hemos recorrido nos ha llevado lejos, pero la forma en que seguimos trabajando nos llevará aún
+            más alto. Creemos en nuestros jugadores, en su talento y en su futuro.
+            <br>
+            <br>
+            <strong>DTMones. Pasión, dedicación y éxito.</strong>
+        </p>
+
+
+
+
+
+
+
+
+
+
+
+
